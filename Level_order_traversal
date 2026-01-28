@@ -1,0 +1,22 @@
+class Solution {
+    public ArrayList<ArrayList<Integer>> levelOrder(Node root) {
+        // Your code here
+        ArrayList<ArrayList<Integer>> list = new ArrayList<>();
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        int i=0;
+        while(!q.isEmpty()) {
+            list.add(new ArrayList<>());
+            Node curr = q.poll();
+            list.get(i).add(curr.data);
+            if(curr.left!=null) {
+                q.add(curr.left);
+            }
+            if(curr.right!=null) {
+                q.add(curr.right);
+            }
+            i++;
+        }
+        return list;
+    }
+}
